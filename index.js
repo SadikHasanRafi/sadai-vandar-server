@@ -1,9 +1,10 @@
 //eta deploy er somoye uncomment use korte hobe 
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const express = require('express');
 const cors = require('cors');
 const ObjectId = require('mongodb').ObjectId
 require('dotenv').config();
-import {MongoClient} from "mongodb";
+
 
 
 
@@ -20,7 +21,7 @@ import {MongoClient} from "mongodb";
 
 
 //eta bad
-// const { MongoClient, ServerApiVersion } = require('mongodb');
+// import {MongoClient} from "mongodb";
 
 
 const app = express();
