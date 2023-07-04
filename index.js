@@ -1,18 +1,26 @@
-// const { MongoClient, ServerApiVersion } = require('mongodb');
+//eta deploy er somoye uncomment use korte hobe 
 const express = require('express');
 const cors = require('cors');
 const ObjectId = require('mongodb').ObjectId
-
 require('dotenv').config();
+import {MongoClient} from "mongodb";
 
 
 
+
+//eta emni ekhane locally use korar jonno use hobe
 // import express, { response } from "express" 
 // import cors from "cors"
 // import dotenv from 'dotenv'
 // dotenv.config()
 // import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
-import {MongoClient} from "mongodb";
+
+
+
+
+
+//eta bad
+// const { MongoClient, ServerApiVersion } = require('mongodb');
 
 
 const app = express();
@@ -191,6 +199,14 @@ async function run() {
 
 
 
+
+
+
+
+
+
+
+
     //here collection and database will be added
     // const Users = client.db("users").collection("roleMailUID");
 
@@ -199,6 +215,25 @@ async function run() {
     const EmployeeInfo = client.db("users").collection("employeeInfo")
     const UserRole = client.db("users").collection("role")
     const Jobs = client.db("jobs").collection("jobsInfo")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //**********************GET********************************** */
