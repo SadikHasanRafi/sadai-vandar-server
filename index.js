@@ -1,13 +1,13 @@
-const express = require("express");
-// import {express } from "express"
-const cors = require("cors");
-// import cors from "cors"
-const dotenv = require('dotenv');
-// import dotenv from 'dotenv'
+// const express = require("express");
+import {express } from "express"
+// const cors = require("cors");
+import cors from "cors"
+// const dotenv = require('dotenv');
+import dotenv from 'dotenv'
 
 dotenv.config()
-const mongodb = require("mongodb");
-// import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
+// const mongodb = require("mongodb");
+import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
 
 const app = express();
 const port = process.env.PORT || 5000;
