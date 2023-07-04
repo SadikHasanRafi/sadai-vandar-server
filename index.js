@@ -1,5 +1,5 @@
-const express = require("express");
-// import express, { response } from "express"
+// const express = require("express");
+import {express } from "express"
 const cors = require("cors");
 // import cors from "cors"
 const dotenv = require('dotenv');
