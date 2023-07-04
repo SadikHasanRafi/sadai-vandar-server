@@ -1,6 +1,6 @@
 //eta deploy er somoye uncomment use korte hobe 
 // const { MongoClient, ServerApiVersion } = require('mongodb');
-const express = require('express');
+// const express = require('express');
 const cors = require('cors');
 const ObjectId = require('mongodb').ObjectId
 const MongoClient = require('mongodb').MongoClient
@@ -11,7 +11,7 @@ require('dotenv').config();
 
 
 //eta emni ekhane locally use korar jonno use hobe
-// import express, { response } from "express" 
+import express, { response } from "express" 
 // import cors from "cors"
 // import dotenv from 'dotenv'
 // dotenv.config()
