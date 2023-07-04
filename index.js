@@ -3,6 +3,18 @@ import cors from "cors"
 import dotenv from 'dotenv'
 dotenv.config()
 import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
+import {
+  getMultipleData,
+  getSingleData,
+  insertSingleData,
+  insertMultipleData,
+  updateSingleData,
+  updateMultipleData,
+  replaceOneData,
+  deleteSingleData,
+  deleteMultipleData,
+  countAmountData,
+} from './dbFunctions.js';
 
 const app = express();
 const port = process.env.PORT || 5000;  
@@ -18,14 +30,17 @@ const client = new MongoClient(uri, {serverApi: {version: ServerApiVersion.v1,st
 
 
 
-
-
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
-    // await client.db("admin").command({ ping: 1 });
+
+
+    // const CompanyInfo = client.db("users").collection("companyInfo")
+    // const EmployeeInfo = client.db("users").collection("employeeInfo")
+    // const UserRole = client.db("users").collection("role")
+    // const Jobs = client.db("jobs").collection("jobsInfo")
+
 
     
 
@@ -38,6 +53,28 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+
+
+
+
+//----------------get apis
+
+//----------------post apis
+
+app.post("/set-role",async(req,res)=>{
+
+})
+
+//----------------update or patch apis
+
+//-----------------delete apis
+
+
+
+
+
+
 
 
 app.get("/", (req, res) => {
