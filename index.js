@@ -1,8 +1,9 @@
 //eta deploy er somoye uncomment use korte hobe 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+// const { MongoClient, ServerApiVersion } = require('mongodb');
 const express = require('express');
 const cors = require('cors');
 const ObjectId = require('mongodb').ObjectId
+const MongoClient = require('mongodb').MongoClient
 require('dotenv').config();
 
 
