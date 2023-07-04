@@ -6,7 +6,8 @@ const dotenv = require('dotenv');
 // import dotenv from 'dotenv'
 
 dotenv.config()
-import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
+const mongodb = require("mongodb");
+// import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
 
 const app = express();
 const port = process.env.PORT || 5000;
