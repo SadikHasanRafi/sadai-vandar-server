@@ -20,7 +20,7 @@ app.use(express.json());
 // const uri = `mongodb+srv://sadikhasan13255:4G5V72OUXE11c5HC@cluster0.kz0zbjn.mongodb.net/?retryWrites=true&w=majority`
 
 // const uri = `mongodb+srv://sadikhasan13255:4G5V72OUXE11c5HC@cluster0.kz0zbjn.mongodb.net/?retryWrites=true&w=majority`;
-const uri = `mongodb+srv://neloy:OW1M2haLBhuS0Km7@cluster0.ldswlo8.mongodb.net/?retryWrites=true&w=majority`
+const uri = "mongodb+srv://sadikhasan13255:zjVHSM7Ek8Mevqyi@cluster0.5ecdf2f.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {serverApi: {version: ServerApiVersion.v1,strict: true,deprecationErrors: true,},});
 
 // const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.fppyswv.mongodb.net/?retryWrites=true&w=majority`;
