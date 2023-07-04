@@ -1,12 +1,9 @@
 // const express = require("express");
-import {express } from "express"
+import express, { response } from "express"
 // const cors = require("cors");
 import cors from "cors"
-// const dotenv = require('dotenv');
 import dotenv from 'dotenv'
-
 dotenv.config()
-// const mongodb = require("mongodb");
 import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
 
 const app = express();
@@ -372,6 +369,11 @@ app.get("/superadmin-get-all-company",async (req,res)=>{
 })
 
 
+app.get("/get-all-review",async (req,res)=>{
+  const allReview = await getMultipleData(UserRole)
+  res.send(allReview)
+})/**review */
+
 
 
 
@@ -444,31 +446,42 @@ app.get("/superadmin-get-all-company",async (req,res)=>{
 
       // task 4 start
       if (isUidPresent) {
-        res.send("You already applied here...")
+        return res.send("You already applied here...")
       }else{
         const newWhoAppliedArray = [...job.whoApplied,uid]
       //task 4 done
 
 
             //task 6 start 
-            const employee = await getSingleData(EmployeeInfo,{uid:uid},{})
+            let employee = await getSingleData(EmployeeInfo,{uid:uid},{})
             //task 6 done
 
+            let aj = employee.appliedJobs
 
-            employee.appliedJobs.push(_id)
+            // employee.appliedJobs.push(_id)
+            delete employee.appliedJobs
+
+            aj = [...aj,_id]
+
+            employee ={
+              ... employee,
+              appliedJobs: aj
+            }
+
+
 
 
 
       //task 5 start
         delete job.whoApplied
-        job = {
+          job = {
           ...job,
           whoApplied:newWhoAppliedArray
         }
         const updatedJob = await updateSinlgeData(Jobs,queryJob,job,true)
         const updatedEmployee = await updateSinlgeData(EmployeeInfo,{uid:uid},employee,true)
         // console.log(updatedJob,updatedEmployee)
-        res.send("UpdatedJob")
+        return  res.send("UpdatedJob")
         //task 5 done
       }
 
