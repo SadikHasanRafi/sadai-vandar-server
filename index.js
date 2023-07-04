@@ -1,5 +1,5 @@
-// const express = require("express");
-import express, { response } from "express"
+const express = require("express");
+// import express, { response } from "express"
 // const cors = require("cors");
 import cors from "cors"
 import dotenv from 'dotenv'
@@ -185,7 +185,7 @@ async function run() {
     //here collection and database will be added
     // const Users = client.db("users").collection("roleMailUID");
 
-    
+
     const CompanyInfo = client.db("users").collection("companyInfo")
     const EmployeeInfo = client.db("users").collection("employeeInfo")
     const UserRole = client.db("users").collection("role")
