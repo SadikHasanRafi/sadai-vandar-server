@@ -1,7 +1,7 @@
 const express = require("express");
 // import express, { response } from "express"
-// const cors = require("cors");
-import cors from "cors"
+const cors = require("cors");
+// import cors from "cors"
 import dotenv from 'dotenv'
 dotenv.config()
 import { MongoClient, ServerApiVersion, ObjectId } from "mongodb" 
