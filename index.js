@@ -1,5 +1,5 @@
 // const express = require("express");
-import {express} from "express"
+import express, { response } from "express"
 // const cors = require("cors");
 import cors from "cors"
 import dotenv from 'dotenv'
@@ -369,11 +369,6 @@ app.get("/superadmin-get-all-company",async (req,res)=>{
 })
 
 
-app.get("/get-all-review",async (req,res)=>{
-  const allReview = await getMultipleData(UserRole)
-  res.send(allReview)
-})/**review */
-
 
 
 
@@ -446,42 +441,31 @@ app.get("/get-all-review",async (req,res)=>{
 
       // task 4 start
       if (isUidPresent) {
-        return res.send("You already applied here...")
+        res.send("You already applied here...")
       }else{
         const newWhoAppliedArray = [...job.whoApplied,uid]
       //task 4 done
 
 
             //task 6 start 
-            let employee = await getSingleData(EmployeeInfo,{uid:uid},{})
+            const employee = await getSingleData(EmployeeInfo,{uid:uid},{})
             //task 6 done
 
-            let aj = employee.appliedJobs
 
-            // employee.appliedJobs.push(_id)
-            delete employee.appliedJobs
-
-            aj = [...aj,_id]
-
-            employee ={
-              ... employee,
-              appliedJobs: aj
-            }
-
-
+            employee.appliedJobs.push(_id)
 
 
 
       //task 5 start
         delete job.whoApplied
-          job = {
+        job = {
           ...job,
           whoApplied:newWhoAppliedArray
         }
         const updatedJob = await updateSinlgeData(Jobs,queryJob,job,true)
         const updatedEmployee = await updateSinlgeData(EmployeeInfo,{uid:uid},employee,true)
         // console.log(updatedJob,updatedEmployee)
-        return  res.send("UpdatedJob")
+        res.send("UpdatedJob")
         //task 5 done
       }
 
@@ -957,3 +941,4 @@ run().catch(console.dir);
     app.listen(port, () => {
       console.log(`example app kahini -_- on port `,port);
     });
+
