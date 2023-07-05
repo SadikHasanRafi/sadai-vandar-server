@@ -254,6 +254,20 @@ app.get('/user-type/:uid', async (req, res) => {
   }
 });
 
+app.get('/products/:uid', async (req, res) => {
+  const { uid } = req.params;
+
+  try {
+    // Find all products associated with the provided uid
+    const products = await productsCollection.find({ uid });
+
+    res.send(products);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve products' });
+  }
+
+
 
 
 
