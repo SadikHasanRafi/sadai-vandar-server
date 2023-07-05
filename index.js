@@ -376,7 +376,23 @@ app.post("/products", async (req, res) => {
 
 
     //**********************DELETE********************************** */
+    app.delete('/delete_products/:id', async (req, res) => {
+      const productId = req.params.id;
     
+      try {
+        // Delete the document from the productsCollection
+        const result = await productsCollection.deleteOne({ _id: ObjectId(productId) });
+    
+        if (result.deletedCount === 1) {
+          return res.json({ message: `Product with ID ${productId} has been deleted.` });
+        } else {
+          return res.status(404).json({ message: 'Product not found.' });
+        }
+      } catch (error) {
+        console.error('Failed to delete product:', error);
+        res.status(500).json({ message: 'Failed to delete product.' });
+      }
+    });
 
 
 
