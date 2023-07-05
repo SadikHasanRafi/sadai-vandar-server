@@ -238,6 +238,21 @@ app.get('/shopkeeper/:uid', async (req, res) => {
 });
 
 
+app.get('/user-type/:uid', async (req, res) => {
+  try {
+    const uid = req.params.uid;
+    console.log(uid)
+
+    // Search for shopkeeper by UID in the shopkeeperCollection
+    const userType = await rolesAndReviewsCollection.findOne({ uid:uid });
+    console.log(userType)
+    res.send(userType)
+    
+  } catch (error) {
+    console.error('Error searching for shopkeeper:', error);
+    // res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 
 
