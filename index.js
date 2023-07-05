@@ -245,7 +245,7 @@ app.get('/user-type/:uid', async (req, res) => {
 
     // Search for shopkeeper by UID in the shopkeeperCollection
     const userType = await rolesAndReviewsCollection.findOne({ uid:uid });
-    console.log(userType)
+    // console.log(userType)
     res.send(userType)
     
   } catch (error) {
@@ -256,16 +256,18 @@ app.get('/user-type/:uid', async (req, res) => {
 
 app.get('/products/:uid', async (req, res) => {
   const { uid } = req.params;
-
+  // console.log(uid)
   try {
     // Find all products associated with the provided uid
-    const products = await productsCollection.find({ uid });
+    const products = await getMultipleData(productsCollection);
+    console.log(products.data)
 
     res.send(products);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to retrieve products' });
   }
+})
 
 
 
