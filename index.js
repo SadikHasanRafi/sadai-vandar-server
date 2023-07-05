@@ -221,7 +221,21 @@ async function run() {
 
     //**********************GET********************************** */
    
+app.get('/shopkeeper/:uid', async (req, res) => {
+  try {
+    const uid = req.params.uid;
+    console.log(uid)
 
+    // Search for shopkeeper by UID in the shopkeeperCollection
+    const shopkeeper = await shopkeeperCollection.findOne({ uid:uid });
+    console.log(shopkeeper)
+    res.send(shopkeeper)
+    
+  } catch (error) {
+    console.error('Error searching for shopkeeper:', error);
+    // res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 
 
