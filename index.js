@@ -329,6 +329,19 @@ app.post("/shopkeeper", async (req, res) => {
 
 
 
+app.post("/products", async (req, res) => {
+  try {
+
+    const savedProduct = await insertSingleData(productsCollection,req.body);
+
+    res.status(201).send(savedProduct);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
+
 
 
 
