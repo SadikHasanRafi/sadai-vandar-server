@@ -270,6 +270,88 @@ app.get('/products/:uid', async (req, res) => {
 })
 
 
+app.get('/products', async (req, res) => {
+  try {
+    // Retrieve all documents from the productsCollection
+    const data = await productsCollection.find({}).toArray();
+
+    res.send(data);
+  } catch (error) {
+    console.error('Failed to fetch products:', error);
+    res.status(500).json({ message: 'Failed to fetch products.' });
+  }
+});
+
+app.get('/registered-users', async (req, res) => {
+  try {
+    // Retrieve all documents from the productsCollection
+    const data = await registeredBuyersCollection.find({}).toArray();
+
+    res.send(data);
+  } catch (error) {
+    console.error('Failed to fetch registered users:', error);
+    res.status(500).json({ message: 'Failed to fetch registered users.' });
+  }
+});
+
+app.get('/roles-and-reviews', async (req, res) => {
+  try {
+    // Retrieve all documents from the productsCollection
+    const data = await rolesAndReviewsCollection.find({}).toArray();
+
+    res.send(data);
+  } catch (error) {
+    console.error('Failed to fetch roles and reviews:', error);
+    res.status(500).json({ message: 'Failed to fetch roles and reviews.' });
+  }
+});
+
+app.get('/shopkeepers', async (req, res) => {
+  try {
+    // Retrieve all documents from the productsCollection
+    const data = await shopkeeperCollection.find({}).toArray();
+
+    res.send(data);
+  } catch (error) {
+    console.error('Failed to fetch shopkeeper:', error);
+    res.status(500).json({ message: 'Failed to fetch shopkeeper.' });
+  }
+});
+
+app.get('/transactions', async (req, res) => {
+  try {
+    // Retrieve all documents from the productsCollection
+    const data = await transactionsCollection.find({}).toArray();
+    res.send(data);
+  } catch (error) {
+    console.error('Failed to fetch transactions:', error);
+    res.status(500).json({ message: 'Failed to fetch transactions.' });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -355,6 +437,16 @@ app.post("/products", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+app.post('/transactions',async (req, res) => {
+  const transactionData = req.body;
+  const insert = await insertSingleData(transactionsCollection,transactionData)
+  
+  console.log("🚀 ~ file: index.js:445 ~ app.post ~ insert.insertedId:", insert.insertedId)
+
+  res.json({ message: insert });
+});
+
 
 
 
