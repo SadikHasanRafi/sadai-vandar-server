@@ -441,7 +441,7 @@ app.post("/products", async (req, res) => {
 app.post('/transactions',async (req, res) => {
   const transactionData = req.body;
   const insert = await insertSingleData(transactionsCollection,transactionData)
-  
+
   console.log("🚀 ~ file: index.js:445 ~ app.post ~ insert.insertedId:", insert.insertedId)
 
   res.json({ message: insert });
@@ -511,7 +511,11 @@ app.post('/transactions',async (req, res) => {
 
     //**********************UPDATE / PUT********************************** */
 
-    
+    axios.put("/shopkeeper/:uid",async(req,res) => {
+      const uid = req.params
+      const response = await updateSinlgeData(shopkeeperCollection,{uid},req.body,true)
+      res.send(response) 
+    })
     
 
 
