@@ -467,13 +467,13 @@ app.post('/transactions',async (req, res) => {
 
 
 
-    //**********************DELETE********************************** */
+    //************************!Delete*********************************
     app.delete('/delete_products/:id', async (req, res) => {
       const productId = req.params.id;
     
       try {
         // Delete the document from the productsCollection
-        const result = await productsCollection.deleteOne({ _id: ObjectId(productId) });
+        const result = await productsCollection.deleteOne({ _id: new ObjectId(productId) });
     
         if (result.deletedCount === 1) {
           return res.json({ message: `Product with ID ${productId} has been deleted.` });
