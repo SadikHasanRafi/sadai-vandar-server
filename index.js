@@ -511,10 +511,10 @@ app.post('/transactions',async (req, res) => {
 
     //**********************UPDATE / PUT********************************** */
 
-    axios.put("/shopkeeper/:uid",async(req,res) => {
+    app.put("/shopkeeper/:uid",async(req,res) => {
       const uid = req.params
       const response = await updateSinlgeData(shopkeeperCollection,{uid},req.body,true)
-      res.send(response) 
+      res.send(res.body) 
     })
     
 
